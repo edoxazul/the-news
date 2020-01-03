@@ -1,0 +1,52 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+// Build a number linked to the date to use as version.
+def YEAR_WEEK   = new Date().format("yyww").toInteger()
+def DAY         = new Date().format("u").toInteger()
+def HOUR_MINUTE = new Date().format("HHmm").toInteger()
+
+// The build time
+def BUILD_TIMESTAMP = 100000 * YEAR_WEEK + 10000 * DAY + HOUR_MINUTE
+// The build version
+def BUILD_VERSION = "version ${YEAR_WEEK}:${DAY}:${HOUR_MINUTE}"
+
+
+// Plugin to check for the latest libraries version.
+apply plugin: "com.github.ben-manes.versions"
+
+buildscript {
+
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.0.0-alpha07"
+        classpath "com.github.ben-manes:gradle-versions-plugin:0.27.0"
+
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    ext.buildTimestamp = BUILD_TIMESTAMP
+    ext.buildVersion = BUILD_VERSION
+
+    // Use the temp directory to build temporals
+    buildDir = "${System.env.TEMP}//gradle-build//${rootProject.name}//${project.name}"
+    logger.lifecycle("BuildDir: ${buildDir}")
+
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

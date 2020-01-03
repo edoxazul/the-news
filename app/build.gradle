@@ -1,0 +1,130 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+
+    defaultConfig {
+        applicationId "cl.ucn.disc.dsm.thenews"
+        minSdkVersion 23
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+            shrinkResources false
+            zipAlignEnabled false
+            crunchPngs false
+            versionNameSuffix ".d"
+        }
+
+        release {
+            debuggable false
+            minifyEnabled true
+            shrinkResources true
+            zipAlignEnabled true
+            crunchPngs true
+            versionNameSuffix ".r"
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // Use java 8
+    compileOptions {
+        // Flag to enable support for the new language APIs
+        // coreLibraryDesugaringEnabled false
+
+        // Sets Java compatibility to Java 8
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+// Override the versionCode and versionName
+    android.applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            output.versionCodeOverride = project.ext.buildTimestamp
+            output.versionNameOverride = "One ${project.ext.buildVersion}"
+        }
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+    buildFeatures {
+        // Determines whether to enable support for Jetpack Compose.
+        // https://developer.android.com/jetpack/compose
+        compose = false
+        // Determines whether to generate a BuildConfig class.
+        buildConfig = true
+        // Determines whether to support View Binding.
+        viewBinding = true
+        // Determines whether to support Data Binding.
+        dataBinding = false
+        // Determines whether to generate binder classes for your AIDL files.
+        aidl = true
+        // Determines whether to support RenderScript. (default true)
+        renderScript = true
+        // Determines whether to support injecting custom variables into the module's R class.
+        resValues = true
+        // Determines whether to support shader AOT compilation.
+        shaders = true
+    }
+
+
+
+
+
+}
+
+
+
+dependencies {
+
+    // Latest androidx versions:
+    // https://developer.android.com/feeds/androidx-release-notes.xml
+
+    // JUnit
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0-M1'
+
+    // AppCompat: https://developer.android.com/jetpack/androidx/releases/appcompat
+    implementation 'androidx.appcompat:appcompat:1.2.0-alpha01'
+
+    // Test: https://developer.android.com/jetpack/androidx/releases/test
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2-alpha03'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0-alpha03'
+
+    // SLF4J
+    implementation 'org.slf4j:slf4j-api:1.7.29'
+    // implementation 'ch.qos.logback:logback-classic:1.3.0-alpha5'
+    implementation "com.github.tony19:logback-android:2.0.0"
+
+    // Only in android
+    // runtimeOnly "com.github.tony19:logback-android:2.0.0"
+    testImplementation "ch.qos.logback:logback-classic:1.3.0-alpha5"
+
+    // ACRA (disabled)
+    // def acra_version = "5.4.0"
+    // implementation "ch.acra:acra-mail:$acra_version"
+    // implementation "ch.acra:acra-dialog:$acra_version"
+    // implementation "ch.acra:acra-notification:$acra_version"
+    // implementation "ch.acra:acra-toast:$acra_version"
+
+    // Leak Canary
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.0'
+
+    // Constraintlayout
+    implementation "androidx.constraintlayout:constraintlayout:2.0.0-beta4"
+
+
+
+    // RecyclerView: https://developer.android.com/jetpack/androidx/releases/recyclerview
+    implementation "androidx.recyclerview:recyclerview:1.2.0-alpha01"
+    // SwipeRefreshLayout https://developer.android.com/jetpack/androidx/releases/swiperefreshlayout
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha03"
+}

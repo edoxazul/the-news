@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">@string/title</string>
+  <string name="title">The News</string>
+  <string name="subtitle">News from NewsAPI.org</string>
+</resources>
