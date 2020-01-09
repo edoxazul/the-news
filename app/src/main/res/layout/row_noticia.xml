@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:fresco="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:orientation="vertical">
+
+  <com.facebook.drawee.view.SimpleDraweeView
+    android:id="@+id/sdv_foto"
+    android:layout_width="142dp"
+    android:layout_height="80dp"
+    android:paddingTop="2dp"
+    android:paddingStart="2dp"
+    android:paddingEnd="4dp"
+    fresco:roundedCornerRadius="5dp" />
+  <TextView
+    android:id="@+id/tv_titulo"
+    android:textStyle="bold"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textAppearance="@style/TextLarge"
+    tools:text="@tools:sample/lorem" />
+  <TextView
+    android:id="@+id/tv_resumen"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textAppearance="@style/TextMedium"
+    tools:text="@tools:sample/lorem" />
+  <TextView
+    android:id="@+id/tv_fuente"
+    android:textStyle="bold"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textAppearance="@style/TextSmall"
+    tools:text="@tools:sample/cities" />
+  <TextView
+    android:id="@+id/tv_autor"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textAppearance="@style/TextSmall"
+    tools:text="@tools:sample/full_names" />
+
+  <TextView
+    android:id="@+id/tv_fecha"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textAppearance="@style/TextSmall"
+    tools:text="@tools:sample/date/ddmmyy" />
+
+</LinearLayout>

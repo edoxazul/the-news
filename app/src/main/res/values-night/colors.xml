@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <color name="colorAccent">@color/orange600</color>
+
+  <!-- Text -->
+  <color name="textColorPrimary">@color/orange100</color>
+  <color name="textColorSecondary">@color/orange200</color>
+  <color name="textColorTertiary">@color/orange300</color>
+
+  <!-- Toolbar -->
+  <color name="statusBarColor">@color/orange1000</color>
+  <color name="toolbarBackground">@color/orange900</color>
+  <color name="windowBackground">@color/orange1300</color>
+  <color name="dividerColor">@color/orange400</color>
+  <color name="navigationBarColor">@color/orange1000</color>
+
+  <color name="toolbarTitleTextColor">@color/orange100</color>
+  <color name="toolbarSubtitleTextColor">@color/orange50</color>
+
+</resources>
+
+
+
+
+
