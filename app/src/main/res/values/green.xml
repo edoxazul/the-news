@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <color name="g0">#FFFFFF</color>
-  <color name="g50">#E8F5E9</color>
-  <color name="g100">#C8E6C9</color>
-  <color name="g200">#A5D6A7</color>
-  <color name="g300">#81C784</color>
-  <color name="g400">#66BB6A</color>
-  <color name="g500">#4CAF50</color>
-  <color name="g600">#43A047</color>
-  <color name="g700">#388E3C</color>
-  <color name="g800">#2E7D32</color>
-  <color name="g900">#1B5E20</color>
-  <color name="g1000">#123e15</color>
-  <color name="g1100">#0f2d11</color>
-  <color name="g1200">#0a1e0b</color>
-  <color name="g1300">#040a04</color>
-  <color name="g1400">#000000</color>
+
+  <color name="green0">#FFFFFF</color>
+  <color name="green50">#E8F5E9</color>
+  <color name="green100">#C8E6C9</color>
+  <color name="green200">#A5D6A7</color>
+  <color name="green300">#81C784</color>
+  <color name="green400">#66BB6A</color>
+  <color name="green500">#4CAF50</color>
+  <color name="green600">#43A047</color>
+  <color name="green700">#388E3C</color>
+  <color name="green800">#2E7D32</color>
+  <color name="green900">#1B5E20</color>
+  <color name="green1000">#123e15</color>
+  <color name="green1100">#0f2d11</color>
+  <color name="green1200">#0a1e0b</color>
+  <color name="green1300">#040a04</color>
+  <color name="green1400">#000000</color>
+
+
+
 </resources>

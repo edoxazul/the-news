@@ -1,22 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-  <color name="colorAccent">#D81B60</color>
-  <color name="lineDivider">@color/g800</color>
+  <color name="colorAccent">@color/green600</color>
+  <color name="lineDivider">@color/green800</color>
 
   <!-- Text -->
-  <color name="textColorPrimary">@color/g900</color>
-  <color name="textColorSecondary">@color/g800</color>
-  <color name="textColorTertiary">@color/g700</color>
+  <color name="textColorPrimary">@color/green1100</color>
+  <color name="textColorSecondary">@color/green1000</color>
+  <color name="textColorTertiary">@color/green900</color>
 
   <!-- Toolbar -->
-  <color name="statusBarColor">@color/g1100</color>
-  <color name="toolbarBackground">@color/g900</color>
-  <color name="windowBackground">@color/g0</color>
-  <color name="dividerColor">@color/g300</color>
-  <color name="navigationBarColor">@color/g1100</color>
+  <color name="statusBarColor">@color/green1100</color>
+  <color name="toolbarBackground">@color/green900</color>
+  <color name="windowBackground">@color/green0</color>
+  <color name="dividerColor">@color/green800</color>
+  <color name="navigationBarColor">@color/green1100</color>
 
-  <color name="toolbarTitleTextColor">@color/g0</color>
-  <color name="toolbarSubtitleTextColor">@color/g50</color>
+  <color name="toolbarTitleTextColor">@color/green0</color>
+  <color name="toolbarSubtitleTextColor">@color/green50</color>
 
 </resources>
+
+
+
+
+
+
+
