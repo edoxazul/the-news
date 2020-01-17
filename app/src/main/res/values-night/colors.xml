@@ -18,6 +18,8 @@
   <color name="toolbarTitleTextColor">@color/orange100</color>
   <color name="toolbarSubtitleTextColor">@color/orange50</color>
 
+  <color name="dimmed">#E9000000</color>
+
 </resources>
 
 
