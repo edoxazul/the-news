@@ -36,4 +36,11 @@ public interface NoticiaService {
    */
   List<Noticia> getNoticias(final int pageSize);
 
+  /**
+   *   *
+   * @param pageSize - how many News
+   * @return - The {@link List} of {@link Noticia}
+   */
+  List<Noticia> getTopHeadLines(final int pageSize);
+
 }

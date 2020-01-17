@@ -17,9 +17,12 @@
  * limitations under the License.
  */
 
-package cl.ucn.disc.dsm.thenews.services.newsapi;
+package cl.ucn.disc.dsm.thenews.services;
 
 import cl.ucn.disc.dsm.thenews.model.Noticia;
+import cl.ucn.disc.dsm.thenews.services.newsapi.Article;
+import cl.ucn.disc.dsm.thenews.services.newsapi.NewsApiNoticiaService.NewsAPIException;
+import cl.ucn.disc.dsm.thenews.services.newsapi.Source;
 import java.net.URI;
 import java.net.URISyntaxException;
 import net.openhft.hashing.LongHashFunction;
@@ -47,7 +50,7 @@ public class Transformer {
 
     // Nullity
     if (article == null) {
-      throw new NewsApiNoticiaService.NewsAPIException("Article was null");
+      throw new NewsAPIException("Article was null");
     }
 
     // The host
@@ -60,7 +63,7 @@ public class Transformer {
 
       // .. y el contenido es null, lanzar exception!
       if (article.description == null) {
-        throw new NewsApiNoticiaService.NewsAPIException("Article without title and description");
+        throw new NewsAPIException("Article without title and description");
       }
 
       // FIXME: Cambiar el titulo por alguna informacion disponible
@@ -127,7 +130,7 @@ public class Transformer {
 
     // Na' que hacer si la fecha no existe
     if (fecha == null) {
-      throw new NewsApiNoticiaService.NewsAPIException("Can't parse null fecha");
+      throw new NewsAPIException("Can't parse null fecha");
     }
 
     try {
@@ -139,7 +142,7 @@ public class Transformer {
       log.error("Can't parse date: ->{}<-. Error: ", fecha, ex);
 
       // Anido la DateTimeParseException en una NoticiaTransformerException.
-      throw new NewsApiNoticiaService.NewsAPIException("Can't parse date: " + fecha, ex);
+      throw new NewsAPIException("Can't parse date: " + fecha, ex);
     }
   }
 

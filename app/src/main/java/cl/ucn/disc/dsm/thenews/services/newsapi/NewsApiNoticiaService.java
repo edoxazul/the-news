@@ -20,23 +20,17 @@ package cl.ucn.disc.dsm.thenews.services.newsapi;
 
 import cl.ucn.disc.dsm.thenews.model.Noticia;
 import cl.ucn.disc.dsm.thenews.services.NoticiaService;
+import cl.ucn.disc.dsm.thenews.services.Transformer;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
-import net.openhft.hashing.LongHashFunction;
 import okhttp3.OkHttpClient;
 import okhttp3.OkHttpClient.Builder;
 import okhttp3.logging.HttpLoggingInterceptor;
 import okhttp3.logging.HttpLoggingInterceptor.Level;
-import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.threeten.bp.ZonedDateTime;
-import org.threeten.bp.format.DateTimeParseException;
 import retrofit2.Call;
 import retrofit2.HttpException;
 import retrofit2.Response;
@@ -125,7 +119,7 @@ public final class NewsApiNoticiaService implements NoticiaService {
       }
 
       return theResult.articles.stream()
-          .map(Transformer::transform)
+          .map(Transformer ::transform)
           .collect(Collectors.toList());
 
     } catch (final IOException ex) {
@@ -164,5 +158,48 @@ public final class NewsApiNoticiaService implements NoticiaService {
     // Process the Call.
     return getNoticiasFromCall(theCall);
   }
+
+  @Override
+  public List<Noticia> getTopHeadLines(final int pageSize){
+
+    String country = Country.us.toString();
+    String category = Category.technology.toString();
+
+    // Call
+    final Call<NewsApiResult> call = this.newsApi.getTopHeadLines(country, category, pageSize);
+
+    // Process the Call
+    return getNoticiasFromCall(call);
+
+  }
+
+
+
+  /**
+   * Enum Class ...
+   */
+  public enum Category {
+    business,
+    entertainment,
+    general,
+    health,
+    science,
+    sports,
+    technology
+  }
+
+  public enum Country {
+    ar, // Argentina
+    co, // Colombia
+    cu, // Cuba
+    de, // Germany
+    jp, // Japan
+    mx, // Mexico
+    ru,  // Russia
+    us, // United States
+    ve // Venezuela
+  }
+
+
 
 }

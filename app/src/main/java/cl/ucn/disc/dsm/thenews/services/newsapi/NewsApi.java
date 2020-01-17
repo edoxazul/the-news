@@ -50,8 +50,9 @@ interface NewsApi {
    */
   @Headers({"X-Api-Key: " + API_KEY})
   @GET("top-headlines")
-  Call<NewsApiResult> getTopHeadlines(@Query("category")
-  final String category,
+  Call<NewsApiResult> getTopHeadLines(
+      @Query("category") final String category,
+      @Query(("country")) final String country,
       @Query("pageSize") final int pageSize);
 
   /**
