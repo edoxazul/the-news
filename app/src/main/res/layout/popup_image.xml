@@ -5,5 +5,7 @@
   android:id="@+id/pdv_foto"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
+  app:failureImage="@drawable/world"
   app:failureImageScaleType="centerInside"
+  app:placeholderImage="@drawable/world"
   app:placeholderImageScaleType="fitCenter" />
