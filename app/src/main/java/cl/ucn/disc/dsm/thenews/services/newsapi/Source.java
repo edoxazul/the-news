@@ -1,4 +1,3 @@
-
 /*
  * Copyright [2020] [Eduardo Alvarez S]
  *
@@ -20,7 +19,7 @@ package cl.ucn.disc.dsm.thenews.services.newsapi;
 
 public class Source {
 
-    public Object id;
-    public String name;
+  public Object id;
+  public String name;
 
 }

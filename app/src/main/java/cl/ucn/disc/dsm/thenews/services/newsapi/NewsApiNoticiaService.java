@@ -1,5 +1,3 @@
-
-
 /*
  * Copyright [2020] [Eduardo Alvarez S]
  *
@@ -29,14 +27,15 @@ import okhttp3.OkHttpClient;
 import okhttp3.OkHttpClient.Builder;
 import okhttp3.logging.HttpLoggingInterceptor;
 import okhttp3.logging.HttpLoggingInterceptor.Level;
+import org.intellij.lang.annotations.Language;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import retrofit2.Call;
 import retrofit2.HttpException;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-//import retrofit2.Retrofit.Builder;
 import retrofit2.converter.gson.GsonConverterFactory;
+
 
 public final class NewsApiNoticiaService implements NoticiaService {
 
@@ -51,10 +50,10 @@ public final class NewsApiNoticiaService implements NoticiaService {
   /**
    * The Constructor.
    */
-  public NewsApiNoticiaService() {
+  public NewsApiNoticiaService ( ) {
 
     // Logging with slf4j
-    final HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor(log::debug)
+    final HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor(log :: debug)
         .setLevel(Level.BODY);
 
     // Web Client
@@ -88,7 +87,7 @@ public final class NewsApiNoticiaService implements NoticiaService {
    * @param theCall to use.
    * @return the {@link List} of {@link Noticia}.
    */
-  private static List<Noticia> getNoticiasFromCall(final Call<NewsApiResult> theCall) {
+  private static List<Noticia> getNoticiasFromCall (final Call<NewsApiResult> theCall) {
 
     try {
 
@@ -119,7 +118,7 @@ public final class NewsApiNoticiaService implements NoticiaService {
       }
 
       return theResult.articles.stream()
-          .map(Transformer ::transform)
+          .map(Transformer :: transform)
           .collect(Collectors.toList());
 
     } catch (final IOException ex) {
@@ -133,11 +132,11 @@ public final class NewsApiNoticiaService implements NoticiaService {
    */
   public static final class NewsAPIException extends RuntimeException {
 
-    public NewsAPIException(final String message) {
+    public NewsAPIException (final String message) {
       super(message);
     }
 
-    public NewsAPIException(final String message, final Throwable cause) {
+    public NewsAPIException (final String message, final Throwable cause) {
       super(message, cause);
     }
 
@@ -150,7 +149,7 @@ public final class NewsApiNoticiaService implements NoticiaService {
    * @return the {@link List} of {@link Noticia}.
    */
   @Override
-  public List<Noticia> getNoticias(int pageSize) {
+  public List<Noticia> getNoticias (final int pageSize) {
 
     // the Call
     final Call<NewsApiResult> theCall = this.newsApi.getEverything(pageSize);
@@ -160,7 +159,7 @@ public final class NewsApiNoticiaService implements NoticiaService {
   }
 
   @Override
-  public List<Noticia> getTopHeadLines(final int pageSize){
+  public List<Noticia> getTopHeadLines (final int pageSize) {
 
     String country = Country.us.toString();
     String category = Category.technology.toString();
@@ -172,7 +171,6 @@ public final class NewsApiNoticiaService implements NoticiaService {
     return getNoticiasFromCall(call);
 
   }
-
 
 
   /**
@@ -188,18 +186,18 @@ public final class NewsApiNoticiaService implements NoticiaService {
     technology
   }
 
+
   public enum Country {
     ar, // Argentina
+    de, // Germany
     co, // Colombia
     cu, // Cuba
-    de, // Germany
     jp, // Japan
     mx, // Mexico
     ru,  // Russia
     us, // United States
     ve // Venezuela
   }
-
 
 
 }

@@ -1,5 +1,3 @@
-
-
 /*
  * Copyright [2020] [Eduardo Alvarez S]
  *
@@ -34,13 +32,12 @@ public interface NoticiaService {
    * @param pageSize how many.
    * @return the {@link List} of {@link Noticia}.
    */
-  List<Noticia> getNoticias(final int pageSize);
+  List<Noticia> getNoticias (final int pageSize);
 
   /**
-   *   *
    * @param pageSize - how many News
    * @return - The {@link List} of {@link Noticia}
    */
-  List<Noticia> getTopHeadLines(final int pageSize);
+  List<Noticia> getTopHeadLines (final int pageSize);
 
 }

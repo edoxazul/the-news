@@ -1,4 +1,3 @@
-
 /*
  * Copyright [2020] [Eduardo Alvarez S]
  *
@@ -54,13 +53,12 @@ public class MainActivity extends AppCompatActivity {
   private NoticiaAdapter noticiaAdapter;
 
 
-
   /**
    * The ViewModel of Noticia.
    */
   private NoticiaViewModel noticiaViewModel;
 
-//  /**
+  //  /**
 //   * The NoticiaService
 //   */
   private NoticiaService noticiaService;
@@ -102,8 +100,6 @@ public class MainActivity extends AppCompatActivity {
               (this, DividerItemDecoration.VERTICAL));
     }
 
-
-
     // The ViewModel
     {
       // Build the NoticiaViewModel.
@@ -114,33 +110,31 @@ public class MainActivity extends AppCompatActivity {
           noticias -> this.noticiaAdapter.setNoticias(noticias));
 
       // Observe the exception
-      this.noticiaViewModel.getException().observe(this, this::showException);
+      this.noticiaViewModel.getException().observe(this, this :: showException);
 
     }
 
-
-
-
     // The refresh
     {
-      this.binding.swlRefresh.setOnRefreshListener(() -> {
+      this.binding.swlRefresh.setOnRefreshListener(( ) -> {
         log.debug("Refreshing ..");
 
         // Run in background
-        AsyncTask.execute(() -> {
+        AsyncTask.execute(( ) -> {
 
           // All ok
           final int size = this.noticiaViewModel.refresh();
           if (size != -1) {
 
             // In the UI
-            runOnUiThread(() -> {
+            runOnUiThread(( ) -> {
 
               // Hide the loading
               this.binding.swlRefresh.setRefreshing(false);
 
               // Show a message.
-              Toasty.success(this, "Noticias fetched: " + size, Toast.LENGTH_SHORT, true).show();
+              Toasty.success(this, "Noticias fetched: "
+                  + size, Toast.LENGTH_SHORT, true).show();
 
             });
           }
@@ -158,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
    *
    * @param exception to use.
    */
-  private void showException(final Exception exception) {
+  private void showException (final Exception exception) {
 
     // Hide the loading
     this.binding.swlRefresh.setRefreshing(false);

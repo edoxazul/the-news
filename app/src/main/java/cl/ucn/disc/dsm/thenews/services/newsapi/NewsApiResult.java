@@ -1,4 +1,3 @@
-
 /*
  * Copyright [2020] [Eduardo Alvarez S]
  *
@@ -22,7 +21,7 @@ import java.util.List;
 
 public class NewsApiResult {
 
-    public String status;
-    public long totalResults;
-    public List<Article> articles = new ArrayList<Article>();
+  public String status;
+  public long totalResults;
+  public List<Article> articles = new ArrayList<Article>();
 }

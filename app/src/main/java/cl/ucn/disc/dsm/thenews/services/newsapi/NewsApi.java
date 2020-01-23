@@ -1,6 +1,3 @@
-
-
-
 /*
  * Copyright [2020] [Eduardo Alvarez S]
  *
@@ -36,6 +33,7 @@ interface NewsApi {
    */
   String BASE_URL = "https://newsapi.org/v2/";
 
+
   /**
    * The API Key
    */
@@ -45,12 +43,13 @@ interface NewsApi {
    * https://newsapi.org/docs/endpoints/top-headlines
    *
    * @param category to use as filter.
+   * @param country  of the news.
    * @param pageSize the number of results to get.
    * @return the call of {@link NewsApiResult}.
    */
   @Headers({"X-Api-Key: " + API_KEY})
   @GET("top-headlines")
-  Call<NewsApiResult> getTopHeadLines(
+  Call<NewsApiResult> getTopHeadLines (
       @Query("category") final String category,
       @Query(("country")) final String country,
       @Query("pageSize") final int pageSize);
@@ -63,6 +62,6 @@ interface NewsApi {
   @Headers({"X-Api-Key: " + API_KEY, "X-No-Cache: true"})
   // TODO: Change the list of sources.
   @GET("everything?sources=ars-technica,wired,hacker-news,recode")
-  Call<NewsApiResult> getEverything(@Query("pageSize") final int pageSize);
+  Call<NewsApiResult> getEverything (@Query("pageSize") final int pageSize);
 
 }

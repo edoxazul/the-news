@@ -1,6 +1,3 @@
-
-
-
 /*
  * Copyright [2020] [Eduardo Alvarez S]
  *
@@ -54,7 +51,7 @@ public class NoticiaAdapter extends RecyclerView.Adapter<NoticiaViewHolder> {
   /**
    * The Constructor.
    */
-  public NoticiaAdapter() {
+  public NoticiaAdapter ( ) {
 
     // Empty list
     this.theNoticias = new ArrayList<>();
@@ -68,7 +65,7 @@ public class NoticiaAdapter extends RecyclerView.Adapter<NoticiaViewHolder> {
    *
    * @param noticias to use.
    */
-  public void setNoticias(final List<Noticia> noticias) {
+  public void setNoticias (final List<Noticia> noticias) {
 
     // Update the noticias
     this.theNoticias = noticias;
@@ -82,7 +79,7 @@ public class NoticiaAdapter extends RecyclerView.Adapter<NoticiaViewHolder> {
    */
   @NotNull
   @Override
-  public NoticiaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+  public NoticiaViewHolder onCreateViewHolder (@NonNull ViewGroup parent, int viewType) {
 
     // The inflater
     final LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
@@ -152,11 +149,11 @@ public class NoticiaAdapter extends RecyclerView.Adapter<NoticiaViewHolder> {
   }
 
   /**
-   * Called by RecyclerView to display the data at the specified position. This method should update the contents of the
-   * ViewHolder to reflect the item at the given position.
+   * Called by RecyclerView to display the data at the specified position. This method should update
+   * the contents of the ViewHolder to reflect the item at the given position.
    */
   @Override
-  public void onBindViewHolder(@NonNull NoticiaViewHolder holder, int position) {
+  public void onBindViewHolder (@NonNull NoticiaViewHolder holder, int position) {
     holder.bind(this.theNoticias.get(position));
   }
 
@@ -164,14 +161,15 @@ public class NoticiaAdapter extends RecyclerView.Adapter<NoticiaViewHolder> {
    * Returns the total number of items in the data set held by the adapter.
    */
   @Override
-  public int getItemCount() {
+  public int getItemCount ( ) {
     return this.theNoticias.size();
   }
+
   /**
    * Return the stable ID for the item at position.
    */
   @Override
-  public long getItemId(int position) {
+  public long getItemId (int position) {
     return this.theNoticias.get(position).id;
   }
 
@@ -183,10 +181,12 @@ public class NoticiaAdapter extends RecyclerView.Adapter<NoticiaViewHolder> {
    * @param inflater used to inflate the popup.
    * @param context  used to build the dialog.
    */
-  private void showImagePopup(final Noticia noticia, final LayoutInflater inflater, final Context context) {
+  private void showImagePopup (final Noticia noticia,
+      final LayoutInflater inflater, final Context context) {
 
     // The popupimage
-    final PopupImageBinding popupImageBinding = PopupImageBinding.inflate(inflater);
+    final PopupImageBinding popupImageBinding =
+        PopupImageBinding.inflate(inflater);
 
     // The URL of the photo
     popupImageBinding.pdvFoto.setPhotoUri(Uri.parse(noticia.getUrlFoto()));

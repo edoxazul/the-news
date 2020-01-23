@@ -1,6 +1,3 @@
-
-
-
 /*
  * Copyright [2020] [Eduardo Alvarez S]
  *
@@ -36,8 +33,10 @@ import org.threeten.bp.format.DateTimeParseException;
 public class Transformer {
 
 
+  /**
+   *
+   */
   private static final Logger log = LoggerFactory.getLogger(Transformer.class);
-
 
 
   /**
@@ -46,7 +45,7 @@ public class Transformer {
    * @param article to transform
    * @return the Noticia.
    */
-  public static Noticia transform(final Article article) {
+  public static Noticia transform (final Article article) {
 
     // Nullity
     if (article == null) {
@@ -123,10 +122,13 @@ public class Transformer {
    *
    * @param fecha to parse.
    * @return the fecha.
-   * @throws cl.ucn.disc.dsm.thenews.services.newsapi.NewsApiNoticiaService.NewsAPIException en caso de no lograr
-   *                                                                                         convertir la fecha.
+   * @throws cl.ucn.disc.dsm.thenews.services.newsapi.NewsApiNoticiaService.NewsAPIException en caso
+   *                                                                                         de no
+   *                                                                                         lograr
+   *                                                                                         convertir
+   *                                                                                         la fecha.
    */
-  private static ZonedDateTime parseZonedDateTime(final String fecha) {
+  private static ZonedDateTime parseZonedDateTime (final String fecha) {
 
     // Na' que hacer si la fecha no existe
     if (fecha == null) {
@@ -152,7 +154,7 @@ public class Transformer {
    * @param url to use.
    * @return the host part (without the www)
    */
-  private static String getHost(final String url) {
+  private static String getHost (final String url) {
 
     try {
 
@@ -178,13 +180,9 @@ public class Transformer {
    * @param <T> type of t.
    * @return the object in string format.
    */
-  public static <T> String toString(final T t) {
+  public static <T> String toString (final T t) {
     return ReflectionToStringBuilder.toString(t, ToStringStyle.MULTI_LINE_STYLE);
   }
-
-
-
-
 
 
 }

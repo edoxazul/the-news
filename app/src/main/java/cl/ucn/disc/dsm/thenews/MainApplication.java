@@ -34,7 +34,6 @@ import org.slf4j.LoggerFactory;
  * @author Eduardo Alvarez S.
  */
 
-
 public class MainApplication extends Application {
 
   /**
@@ -43,14 +42,13 @@ public class MainApplication extends Application {
   private static final Logger log = LoggerFactory.getLogger(MainApplication.class);
 
   /**
-   * Called when the application is starting, before any activity, service, or receiver objects (excluding content
-   * providers) have been created.
+   * Called when the application is starting, before any activity, service, or receiver objects
+   * (excluding content providers) have been created.
    */
   @Override
-  public void onCreate() {
+  public void onCreate ( ) {
     super.onCreate();
     log.debug("Initializing ..");
-
 
     // Fresco configuration for large images
     ImagePipelineConfig config = ImagePipelineConfig.newBuilder(this)
@@ -87,13 +85,7 @@ public class MainApplication extends Application {
 
     }
 
-
-
     log.debug("Initializing: Done.");
   }
-
-
-
-
 
 }

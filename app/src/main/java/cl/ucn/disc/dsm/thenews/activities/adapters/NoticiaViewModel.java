@@ -54,7 +54,7 @@ public final class NoticiaViewModel extends ViewModel {
    */
 
 
-  public LiveData<List<Noticia>> getNoticias() {
+  public LiveData<List<Noticia>> getNoticias ( ) {
     return this.theNoticias;
   }
 
@@ -63,7 +63,7 @@ public final class NoticiaViewModel extends ViewModel {
    *
    * @return the Exception in case of error.
    */
-  public LiveData<Exception> getException() {
+  public LiveData<Exception> getException ( ) {
     return this.theException;
   }
 
@@ -75,7 +75,7 @@ public final class NoticiaViewModel extends ViewModel {
    *
    * @return the number of noticias loaded.
    */
-  public int refresh() {
+  public int refresh ( ) {
 
     try {
 

@@ -1,6 +1,3 @@
-
-
-
 /*
  * Copyright [2020] [Eduardo Alvarez S]
  *
@@ -49,24 +46,22 @@ public final class NoticiaViewHolder extends RecyclerView.ViewHolder {
    *
    * @param rowNoticiaBinding to use.
    */
-  public NoticiaViewHolder(RowNoticiaBinding rowNoticiaBinding) {
+  public NoticiaViewHolder (RowNoticiaBinding rowNoticiaBinding) {
     super(rowNoticiaBinding.getRoot());
     this.binding = rowNoticiaBinding;
   }
 
-    /**
+  /**
    * Bind the Noticia to the ViewHolder.
    *
    * @param noticia to bind.
    */
-  public void bind(final Noticia noticia) {
+  public void bind (final Noticia noticia) {
 
     this.binding.tvTitulo.setText(noticia.getTitulo());
     this.binding.tvResumen.setText(noticia.getResumen());
     this.binding.tvAutor.setText(noticia.getAutor());
     this.binding.tvFuente.setText(noticia.getFuente());
-
-    // FIXME: The format of the date.
     this.binding.tvFecha.setText(noticia.getFecha().toString());
 
     // If exist the url ..
