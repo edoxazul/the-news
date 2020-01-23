@@ -13,7 +13,7 @@ Project created with the purpose of learn how to create a android app, using an 
 and practice our codding skills.
 
 ## Screenshots
-(./img/Image1.png)
+![Screenshot](./img/Image1.png)
 
 ## Technologies
 *JAVA 8
