@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
   /**
    * The Logger
    */
-
   private static final Logger log = LoggerFactory.getLogger(MainActivity.class);
 
   /**
@@ -61,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
   //  /**
 //   * The NoticiaService
 //   */
-  private NoticiaService noticiaService;
+  //private NoticiaService noticiaService;
 
 
   /**

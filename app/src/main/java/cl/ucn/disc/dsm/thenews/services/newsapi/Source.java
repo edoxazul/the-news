@@ -16,10 +16,12 @@
 
 package cl.ucn.disc.dsm.thenews.services.newsapi;
 
-
+/**
+ * The Source class
+ */
 public class Source {
 
-  public Object id;
+  //public Object id;
   public String name;
 
 }

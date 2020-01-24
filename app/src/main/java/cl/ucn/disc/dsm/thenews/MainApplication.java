@@ -51,6 +51,7 @@ public class MainApplication extends Application {
     log.debug("Initializing ..");
 
     // Fresco configuration for large images
+
     ImagePipelineConfig config = ImagePipelineConfig.newBuilder(this)
         .setProgressiveJpegConfig(new SimpleProgressiveJpegConfig())
         .setResizeAndRotateEnabledForNetwork(true)
@@ -62,6 +63,8 @@ public class MainApplication extends Application {
 
     // Day and Night support
     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+
+    // AndroidThreeTen initialization
     AndroidThreeTen.init(this);
 
     if (BuildConfig.DEBUG) {

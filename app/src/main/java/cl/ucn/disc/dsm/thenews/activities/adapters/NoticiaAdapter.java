@@ -41,6 +41,9 @@ import org.slf4j.LoggerFactory;
  */
 public class NoticiaAdapter extends RecyclerView.Adapter<NoticiaViewHolder> {
 
+  /**
+   * The Logger
+   */
   private static final Logger log = LoggerFactory.getLogger(NoticiaAdapter.class);
 
   /**

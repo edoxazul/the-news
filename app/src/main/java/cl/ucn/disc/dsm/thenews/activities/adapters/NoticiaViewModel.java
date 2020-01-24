@@ -28,7 +28,14 @@ import org.slf4j.LoggerFactory;
 
 public final class NoticiaViewModel extends ViewModel {
 
+  /**
+   * The Logger
+   */
   private static final Logger log = LoggerFactory.getLogger(NoticiaViewModel.class);
+
+  /**
+   * The Size
+   */
   private static final int PAGE_SIZE = 50;
 
   /**
@@ -52,8 +59,6 @@ public final class NoticiaViewModel extends ViewModel {
    *
    * @return the List of Noticia inside a LiveData.
    */
-
-
   public LiveData<List<Noticia>> getNoticias ( ) {
     return this.theNoticias;
   }

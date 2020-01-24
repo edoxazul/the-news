@@ -39,7 +39,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public final class NewsApiNoticiaService implements NoticiaService {
 
-
+  /**
+   * The logger
+   */
   private static final Logger log = LoggerFactory.getLogger(NewsApiNoticiaService.class);
 
   /**
@@ -53,8 +55,8 @@ public final class NewsApiNoticiaService implements NoticiaService {
   public NewsApiNoticiaService ( ) {
 
     // Logging with slf4j
-    final HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor(log :: debug)
-        .setLevel(Level.BODY);
+    final HttpLoggingInterceptor loggingInterceptor =
+        new HttpLoggingInterceptor(log :: debug).setLevel(Level.BODY);
 
     // Web Client
     final OkHttpClient httpClient = new Builder()
@@ -158,6 +160,10 @@ public final class NewsApiNoticiaService implements NoticiaService {
     return getNoticiasFromCall(theCall);
   }
 
+  /**
+   * @param pageSize - how many News
+   * @return the {@link List} of {@link Noticia}.
+   */
   @Override
   public List<Noticia> getTopHeadLines (final int pageSize) {
 
@@ -174,7 +180,7 @@ public final class NewsApiNoticiaService implements NoticiaService {
 
 
   /**
-   * Enum Class ...
+   * Enum Category
    */
   public enum Category {
     business,
@@ -186,6 +192,9 @@ public final class NewsApiNoticiaService implements NoticiaService {
     technology
   }
 
+  /**
+   * Enum Country
+   */
 
   public enum Country {
     ar, // Argentina
