@@ -27,7 +27,6 @@ import okhttp3.OkHttpClient;
 import okhttp3.OkHttpClient.Builder;
 import okhttp3.logging.HttpLoggingInterceptor;
 import okhttp3.logging.HttpLoggingInterceptor.Level;
-import org.intellij.lang.annotations.Language;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import retrofit2.Call;
@@ -40,23 +39,23 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public final class NewsApiNoticiaService implements NoticiaService {
 
   /**
-   * The logger
+   * The logger.
    */
   private static final Logger log = LoggerFactory.getLogger(NewsApiNoticiaService.class);
 
   /**
-   * The NewsAPI
+   * The NewsAPI.
    */
   private final NewsApi newsApi;
 
   /**
    * The Constructor.
    */
-  public NewsApiNoticiaService ( ) {
+  public NewsApiNoticiaService() {
 
     // Logging with slf4j
     final HttpLoggingInterceptor loggingInterceptor =
-        new HttpLoggingInterceptor(log :: debug).setLevel(Level.BODY);
+        new HttpLoggingInterceptor(log:: debug).setLevel(Level.BODY);
 
     // Web Client
     final OkHttpClient httpClient = new Builder()
@@ -89,7 +88,7 @@ public final class NewsApiNoticiaService implements NoticiaService {
    * @param theCall to use.
    * @return the {@link List} of {@link Noticia}.
    */
-  private static List<Noticia> getNoticiasFromCall (final Call<NewsApiResult> theCall) {
+  private static List<Noticia> getNoticiasFromCall(final Call<NewsApiResult> theCall) {
 
     try {
 
@@ -100,7 +99,7 @@ public final class NewsApiNoticiaService implements NoticiaService {
       if (!response.isSuccessful()) {
 
         // Error!
-        throw new NewsAPIException(
+        throw new NewsapiException(
             "Can't get the NewsResult, code: " + response.code(),
             new HttpException(response)
         );
@@ -111,20 +110,20 @@ public final class NewsApiNoticiaService implements NoticiaService {
 
       // No body
       if (theResult == null) {
-        throw new NewsAPIException("NewsResult was null");
+        throw new NewsapiException("NewsResult was null");
       }
 
       // No articles
       if (theResult.articles == null) {
-        throw new NewsAPIException("Articles in NewsResult was null");
+        throw new NewsapiException("Articles in NewsResult was null");
       }
 
       return theResult.articles.stream()
-          .map(Transformer :: transform)
+          .map(Transformer:: transform)
           .collect(Collectors.toList());
 
     } catch (final IOException ex) {
-      throw new NewsAPIException("Can't get the NewsResult", ex);
+      throw new NewsapiException("Can't get the NewsResult", ex);
     }
 
   }
@@ -132,13 +131,13 @@ public final class NewsApiNoticiaService implements NoticiaService {
   /**
    * The Exception.
    */
-  public static final class NewsAPIException extends RuntimeException {
+  public static final class NewsapiException extends RuntimeException {
 
-    public NewsAPIException (final String message) {
+    public NewsapiException(final String message) {
       super(message);
     }
 
-    public NewsAPIException (final String message, final Throwable cause) {
+    public NewsapiException(final String message, final Throwable cause) {
       super(message, cause);
     }
 
@@ -151,7 +150,7 @@ public final class NewsApiNoticiaService implements NoticiaService {
    * @return the {@link List} of {@link Noticia}.
    */
   @Override
-  public List<Noticia> getNoticias (final int pageSize) {
+  public List<Noticia> getNoticias(final int pageSize) {
 
     // the Call
     final Call<NewsApiResult> theCall = this.newsApi.getEverything(pageSize);
@@ -161,11 +160,12 @@ public final class NewsApiNoticiaService implements NoticiaService {
   }
 
   /**
+   * The getTopHeadLines.
    * @param pageSize - how many News
    * @return the {@link List} of {@link Noticia}.
    */
   @Override
-  public List<Noticia> getTopHeadLines (final int pageSize) {
+  public List<Noticia> getTopHeadLines(final int pageSize) {
 
     String country = Country.us.toString();
     String category = Category.technology.toString();
@@ -180,7 +180,7 @@ public final class NewsApiNoticiaService implements NoticiaService {
 
 
   /**
-   * Enum Category
+   * Enum Category.
    */
   public enum Category {
     business,
@@ -193,7 +193,7 @@ public final class NewsApiNoticiaService implements NoticiaService {
   }
 
   /**
-   * Enum Country
+   * Enum Country.
    */
 
   public enum Country {

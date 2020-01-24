@@ -32,12 +32,12 @@ import org.threeten.bp.DateTimeUtils;
 public final class NoticiaViewHolder extends RecyclerView.ViewHolder {
 
   /**
-   * The Bindings
+   * The Bindings.
    */
   private final RowNoticiaBinding binding;
 
   /**
-   * The Date formatter
+   * The Date formatter.
    */
   private static final PrettyTime PRETTY_TIME = new PrettyTime();
 
@@ -46,7 +46,7 @@ public final class NoticiaViewHolder extends RecyclerView.ViewHolder {
    *
    * @param rowNoticiaBinding to use.
    */
-  public NoticiaViewHolder (RowNoticiaBinding rowNoticiaBinding) {
+  public NoticiaViewHolder(RowNoticiaBinding rowNoticiaBinding) {
     super(rowNoticiaBinding.getRoot());
     this.binding = rowNoticiaBinding;
   }
@@ -56,7 +56,7 @@ public final class NoticiaViewHolder extends RecyclerView.ViewHolder {
    *
    * @param noticia to bind.
    */
-  public void bind (final Noticia noticia) {
+  public void bind(final Noticia noticia) {
 
     this.binding.tvTitulo.setText(noticia.getTitulo());
     this.binding.tvResumen.setText(noticia.getResumen());

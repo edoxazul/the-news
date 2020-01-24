@@ -28,12 +28,12 @@ import com.jakewharton.threetenabp.AndroidThreeTen;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
 /**
- * The Main Application
+ * The Main Application.
  *
  * @author Eduardo Alvarez S.
  */
-
 public class MainApplication extends Application {
 
   /**
@@ -46,7 +46,7 @@ public class MainApplication extends Application {
    * (excluding content providers) have been created.
    */
   @Override
-  public void onCreate ( ) {
+  public void onCreate() {
     super.onCreate();
     log.debug("Initializing ..");
 

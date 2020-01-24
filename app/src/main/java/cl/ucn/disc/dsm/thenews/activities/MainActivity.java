@@ -37,17 +37,17 @@ public class MainActivity extends AppCompatActivity {
 
 
   /**
-   * The Logger
+   *The Logger.
    */
   private static final Logger log = LoggerFactory.getLogger(MainActivity.class);
 
   /**
-   * The bindings.
+   *The bindings.
    */
   private ActivityMainBinding binding;
 
   /**
-   * The Adapter
+   *The Adapter.
    */
   private NoticiaAdapter noticiaAdapter;
 
@@ -57,17 +57,13 @@ public class MainActivity extends AppCompatActivity {
    */
   private NoticiaViewModel noticiaViewModel;
 
-  //  /**
-//   * The NoticiaService
-//   */
-  //private NoticiaService noticiaService;
-
 
   /**
+   * The onCreate.
    * @param savedInstanceState to use.
    */
   @Override
-  protected void onCreate (Bundle savedInstanceState) {
+  protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     //setContentView(R.layout.activity_main);
 
@@ -95,8 +91,7 @@ public class MainActivity extends AppCompatActivity {
 
       // The separator (line)
       this.binding.rvNoticias
-          .addItemDecoration(new DividerItemDecoration
-              (this, DividerItemDecoration.VERTICAL));
+          .addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
     }
 
     // The ViewModel
@@ -109,24 +104,24 @@ public class MainActivity extends AppCompatActivity {
           noticias -> this.noticiaAdapter.setNoticias(noticias));
 
       // Observe the exception
-      this.noticiaViewModel.getException().observe(this, this :: showException);
+      this.noticiaViewModel.getException().observe(this, this:: showException);
 
     }
 
     // The refresh
     {
-      this.binding.swlRefresh.setOnRefreshListener(( ) -> {
+      this.binding.swlRefresh.setOnRefreshListener(() -> {
         log.debug("Refreshing ..");
 
         // Run in background
-        AsyncTask.execute(( ) -> {
+        AsyncTask.execute(() -> {
 
           // All ok
           final int size = this.noticiaViewModel.refresh();
           if (size != -1) {
 
             // In the UI
-            runOnUiThread(( ) -> {
+            runOnUiThread(() -> {
 
               // Hide the loading
               this.binding.swlRefresh.setRefreshing(false);
@@ -151,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
    *
    * @param exception to use.
    */
-  private void showException (final Exception exception) {
+  private void showException(final Exception exception) {
 
     // Hide the loading
     this.binding.swlRefresh.setRefreshing(false);

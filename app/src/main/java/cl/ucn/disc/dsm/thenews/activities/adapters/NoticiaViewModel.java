@@ -29,12 +29,12 @@ import org.slf4j.LoggerFactory;
 public final class NoticiaViewModel extends ViewModel {
 
   /**
-   * The Logger
+   * The Logger.
    */
   private static final Logger log = LoggerFactory.getLogger(NoticiaViewModel.class);
 
   /**
-   * The Size
+   * The Size.
    */
   private static final int PAGE_SIZE = 50;
 
@@ -59,7 +59,7 @@ public final class NoticiaViewModel extends ViewModel {
    *
    * @return the List of Noticia inside a LiveData.
    */
-  public LiveData<List<Noticia>> getNoticias ( ) {
+  public LiveData<List<Noticia>> getNoticias() {
     return this.theNoticias;
   }
 
@@ -68,7 +68,7 @@ public final class NoticiaViewModel extends ViewModel {
    *
    * @return the Exception in case of error.
    */
-  public LiveData<Exception> getException ( ) {
+  public LiveData<Exception> getException() {
     return this.theException;
   }
 
@@ -80,7 +80,7 @@ public final class NoticiaViewModel extends ViewModel {
    *
    * @return the number of noticias loaded.
    */
-  public int refresh ( ) {
+  public int refresh() {
 
     try {
 

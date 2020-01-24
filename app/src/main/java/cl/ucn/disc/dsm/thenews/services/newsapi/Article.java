@@ -17,7 +17,7 @@
 package cl.ucn.disc.dsm.thenews.services.newsapi;
 
 /**
- * The class Article
+ * The class Article.
  */
 public class Article {
 

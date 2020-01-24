@@ -32,7 +32,7 @@ public final class MockupNoticiaService implements NoticiaService {
   /**
    * Constructor.
    */
-  public MockupNoticiaService ( ) {
+  public MockupNoticiaService() {
   }
 
   /**
@@ -42,7 +42,7 @@ public final class MockupNoticiaService implements NoticiaService {
    * @return the {@link List} of {@link Noticia}.
    */
   @Override
-  public List<Noticia> getNoticias (int pageSize) {
+  public List<Noticia> getNoticias(int pageSize) {
 
     final List<Noticia> noticias = new ArrayList<>();
 
@@ -75,7 +75,7 @@ public final class MockupNoticiaService implements NoticiaService {
   }
 
   @Override
-  public List<Noticia> getTopHeadLines (int pageSize) {
+  public List<Noticia> getTopHeadLines(int pageSize) {
     return null;
   }
 

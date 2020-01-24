@@ -29,13 +29,13 @@ import retrofit2.http.Query;
 interface NewsApi {
 
   /**
-   * The URL
+   * The URL.
    */
   String BASE_URL = "https://newsapi.org/v2/";
 
 
   /**
-   * The API Key
+   * The API Key.
    */
   String API_KEY = "e14b8cc292b84b6a969bc841d1b14df5";
 
@@ -49,7 +49,7 @@ interface NewsApi {
    */
   @Headers({"X-Api-Key: " + API_KEY})
   @GET("top-headlines")
-  Call<NewsApiResult> getTopHeadLines (
+  Call<NewsApiResult> getTopHeadLines(
       @Query("category") final String category,
       @Query(("country")) final String country,
       @Query("pageSize") final int pageSize);
@@ -62,6 +62,6 @@ interface NewsApi {
   @Headers({"X-Api-Key: " + API_KEY, "X-No-Cache: true"})
   // TODO: Change the list of sources.
   @GET("everything?sources=ars-technica,wired,hacker-news,recode")
-  Call<NewsApiResult> getEverything (@Query("pageSize") final int pageSize);
+  Call<NewsApiResult> getEverything(@Query("pageSize") final int pageSize);
 
 }

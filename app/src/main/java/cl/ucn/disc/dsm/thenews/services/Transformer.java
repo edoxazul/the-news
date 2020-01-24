@@ -18,7 +18,7 @@ package cl.ucn.disc.dsm.thenews.services;
 
 import cl.ucn.disc.dsm.thenews.model.Noticia;
 import cl.ucn.disc.dsm.thenews.services.newsapi.Article;
-import cl.ucn.disc.dsm.thenews.services.newsapi.NewsApiNoticiaService.NewsAPIException;
+import cl.ucn.disc.dsm.thenews.services.newsapi.NewsApiNoticiaService.NewsapiException;
 import cl.ucn.disc.dsm.thenews.services.newsapi.Source;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -34,7 +34,7 @@ public class Transformer {
 
 
   /**
-   *
+   * The logger.
    */
   private static final Logger log = LoggerFactory.getLogger(Transformer.class);
 
@@ -45,11 +45,11 @@ public class Transformer {
    * @param article to transform
    * @return the Noticia.
    */
-  public static Noticia transform (final Article article) {
+  public static Noticia transform(final Article article) {
 
     // Nullity
     if (article == null) {
-      throw new NewsAPIException("Article was null");
+      throw new NewsapiException("Article was null");
     }
 
     // The host
@@ -62,7 +62,7 @@ public class Transformer {
 
       // .. y el contenido es null, lanzar exception!
       if (article.description == null) {
-        throw new NewsAPIException("Article without title and description");
+        throw new NewsapiException("Article without title and description");
       }
 
       // FIXME: Cambiar el titulo por alguna informacion disponible
@@ -122,17 +122,13 @@ public class Transformer {
    *
    * @param fecha to parse.
    * @return the fecha.
-   * @throws cl.ucn.disc.dsm.thenews.services.newsapi.NewsApiNoticiaService.NewsAPIException en caso
-   *                                                                                         de no
-   *                                                                                         lograr
-   *                                                                                         convertir
-   *                                                                                         la fecha.
+   * @throws NewsapiException en caso de no convertir  la fecha.
    */
-  private static ZonedDateTime parseZonedDateTime (final String fecha) {
+  private static ZonedDateTime parseZonedDateTime(final String fecha) {
 
     // Na' que hacer si la fecha no existe
     if (fecha == null) {
-      throw new NewsAPIException("Can't parse null fecha");
+      throw new NewsapiException("Can't parse null fecha");
     }
 
     try {
@@ -144,7 +140,7 @@ public class Transformer {
       log.error("Can't parse date: ->{}<-. Error: ", fecha, ex);
 
       // Anido la DateTimeParseException en una NoticiaTransformerException.
-      throw new NewsAPIException("Can't parse date: " + fecha, ex);
+      throw new NewsapiException("Can't parse date: " + fecha, ex);
     }
   }
 
@@ -154,7 +150,7 @@ public class Transformer {
    * @param url to use.
    * @return the host part (without the www)
    */
-  private static String getHost (final String url) {
+  private static String getHost(final String url) {
 
     try {
 
@@ -180,9 +176,8 @@ public class Transformer {
    * @param <T> type of t.
    * @return the object in string format.
    */
-  public static <T> String toString (final T t) {
+  public static <T> String toString(final T t) {
     return ReflectionToStringBuilder.toString(t, ToStringStyle.MULTI_LINE_STYLE);
   }
-
 
 }

@@ -25,52 +25,52 @@ import org.threeten.bp.ZonedDateTime;
 public final class Noticia {
 
   /**
-   * The Zone
+   * The Zone.
    */
   public static final ZoneId ZONE_ID = ZoneId.of("-3");
 
   /**
-   * The Id
+   * The Id.
    */
   public final Long id;
 
   /**
-   * The Titulo
+   * The Titulo.
    */
   public final String titulo;
 
   /**
-   * The Fuente
+   * The Fuente.
    */
   public final String fuente;
 
   /**
-   * The Author
+   * The Author.
    */
   public final String autor;
 
   /**
-   * The URL
+   * The URL.
    */
   public final String url;
 
   /**
-   * The URL of Photo
+   * The URL of Photo.
    */
   public final String urlFoto;
 
   /**
-   * The Resumen
+   * The Resumen.
    */
   public final String resumen;
 
   /**
-   * The Contenido
+   * The Contenido.
    */
   public final String contenido;
 
   /**
-   * The Fecha
+   * The Fecha.
    */
   public final ZonedDateTime fecha;
 
@@ -87,7 +87,7 @@ public final class Noticia {
    * @param contenido , contenido de la noticia
    * @param fecha     , fecha de publicacion de la noticia
    */
-  public Noticia (Long id, String titulo, String fuente, String autor,
+  public Noticia(Long id, String titulo, String fuente, String autor,
       String url, String urlFoto, String resumen, String contenido,
       ZonedDateTime fecha) {
     this.id = id;
@@ -102,65 +102,74 @@ public final class Noticia {
   }
 
   /**
+   * The getID.
    * @return The id.
    */
-  public Long getId ( ) {
+  public Long getId() {
     return this.id;
   }
 
   /**
+   * Obtener el itulo de la noticia.
    * @return The titulo.
    */
-  public String getTitulo ( ) {
+  public String getTitulo() {
     return this.titulo;
   }
 
   /**
+   * Obtener la fuente de la noticia.
    * @return The fuente.
    */
-  public String getFuente ( ) {
+  public String getFuente() {
     return this.fuente;
   }
 
   /**
+   * Obtener el autor de la noticia.
    * @return The autor.
    */
-  public String getAutor ( ) {
+  public String getAutor() {
     return this.autor;
   }
 
   /**
+   * Obtener la url de la noticia.
    * @return The url.
    */
-  public String getUrl ( ) {
+  public String getUrl() {
     return this.url;
   }
 
   /**
+   * Obtener la url de la Foto.
    * @return The urlFoto.
    */
-  public String getUrlFoto ( ) {
+  public String getUrlFoto() {
     return this.urlFoto;
   }
 
   /**
+   * Obtener el resumen de la noticia.
    * @return The resumen.
    */
-  public String getResumen ( ) {
+  public String getResumen() {
     return this.resumen;
   }
 
   /**
+   * Obtener el contenido de la noticia.
    * @return The contenido.
    */
-  public String getContenido ( ) {
+  public String getContenido() {
     return this.contenido;
   }
 
   /**
+   * Obtener la fecha de la noticia.
    * @return The fecha.
    */
-  public ZonedDateTime getFecha ( ) {
+  public ZonedDateTime getFecha() {
     return this.fecha;
   }
 

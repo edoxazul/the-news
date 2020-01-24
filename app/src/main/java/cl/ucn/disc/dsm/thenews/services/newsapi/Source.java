@@ -17,7 +17,7 @@
 package cl.ucn.disc.dsm.thenews.services.newsapi;
 
 /**
- * The Source class
+ * The Source class.
  */
 public class Source {
 

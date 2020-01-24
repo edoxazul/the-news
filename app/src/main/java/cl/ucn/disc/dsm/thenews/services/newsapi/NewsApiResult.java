@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * NewsApiResult class
+ * NewsApiResult class.
  */
 public class NewsApiResult {
 
